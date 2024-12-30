@@ -80,7 +80,4 @@ Fitur konversi PDF menggunakan `docx2pdf` hanya mendukung Windows.
 ### 3. Apakah proyek ini mendukung lebih dari satu kolom nama di Excel?
 Ya, selama Anda menentukan nama kolom yang sesuai saat memasukkan input.
 
-### 4. lain-lain
-- 
-
 Terimakasih telah mampir pada Repositori ini semoga bermanfaat dan memudahkan mahasiswa dalam mengadakan seminar

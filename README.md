@@ -1,6 +1,6 @@
 # Sertifikat Seminar Otomatis
 
-skrip otomatis untuk mempermudah panitia seminar dalam membuat sertifikat peserta dan mengirimkannya secara otomatis melalui email. Dengan alat ini, Anda hanya perlu memberikan daftar peserta dalam format Excel dan template sertifikat, maka sistem akan menghasilkan sertifikat PDF dan mengirimkannya ke email peserta.
+skrip otomatis untuk mempermudah dalam membuat sertifikat peserta dan mengirimkannya secara otomatis melalui email. Dengan alat ini, Anda hanya perlu memberikan daftar peserta dalam format Excel dan template sertifikat, maka sistem akan menghasilkan sertifikat PDF dan mengirimkannya ke email peserta.
 
 ## Persyaratan
 Pastikan Anda telah menginstal:
@@ -77,8 +77,8 @@ Fitur konversi PDF menggunakan `docx2pdf` hanya mendukung Windows.
 - Periksa koneksi internet.
 - Cek apakah port SMTP (465 atau 587) diblokir oleh jaringan Anda => jika anda menggunakan jaringan intansi, sekolah, perusahaan disarankan menggunakan jaringan hostpot atau lainnya.
 
-### 3. Apakah proyek ini mendukung lebih dari satu kolom nama di Excel?
-Ya, selama Anda menentukan nama kolom yang sesuai saat memasukkan input.
+### 3. Bagaimana bila terjadi masalah yang tudak di duga?
+Anda bisa membaca ulanga persyaratan dan penggunaan kode ini. jika masih belum teratasi anda bisa membuat isu di repositori ini, terkait masalah yang anda hadapi.
 
 
->Terimakasih telah mampir pada Repositori ini semoga bermanfaat dan memudahkan mahasiswa dalam mengadakan seminar
+>Terimakasih telah mampir pada Repositori ini semoga bermanfaat dan memudahkan pekerjaan yang berulang saat membuat sertifikat

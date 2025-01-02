@@ -44,6 +44,7 @@ Pastikan Anda telah menginstal:
    - Jalur file Excel peserta.
    - Jalur template sertifikat.
    - Kolom nama dan email pada file Excel.
+   - jika tidak ingin mengirim ke email isi kolom email dengan -
    - Subjek dan isi pesan email.
 
 4. Skrip akan:

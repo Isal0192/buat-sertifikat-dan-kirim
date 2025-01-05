@@ -29,7 +29,7 @@ class CertificateGenerator:
         return logger
 
     def validate_paths(self) -> None:
-        """Validate Excel and template file paths."""
+        """Validate Excel dan template file paths."""
         if not self.excel_path.exists() or self.excel_path.suffix != '.xlsx':
             raise ValueError("Excel file tidak di temkan")
         if not self.template_path.exists() or self.template_path.suffix != '.docx':
@@ -42,7 +42,6 @@ class CertificateGenerator:
             if df.empty:
                 raise ValueError("file excel kosong")
             
-            # Log available columns in the Excel file for debugging
             self.logger.info(f"column tersedia dalam file excel : {df.columns.tolist()}. 👍🏻")
             return df
         except Exception as e:
@@ -65,7 +64,7 @@ class CertificateGenerator:
         return ' '.join(word.title() for word in formatted.split())
 
     def create_certificate(self, name: str) -> Path:
-        """Create individual certificate PDF."""
+        
         try:
             doc = DocxTemplate(self.template_path)
             doc.render({"NAMA": name})
@@ -78,7 +77,7 @@ class CertificateGenerator:
             
             doc.save(docx_path)
             convert(docx_path)
-            docx_path.unlink()  # Remove temporary .docx file
+            docx_path.unlink()
             
             return pdf_path
         except Exception as e:
@@ -93,18 +92,18 @@ class CertificateGenerator:
         if name_column not in df.columns:
             raise ValueError(f"column tidak ada: {name_column}")
         
-        # Jika email_column tidak None, periksa apakah kolom email ada
+        # Jika email_column tidak None, memeriksa apakah kolom email ada
         if email_column and email_column not in df.columns:
             raise ValueError(f"colum tidak ada: {email_column}")
 
-        # Validasi dan proses data
+        # cek dan proses data
         pdf_paths = []
         valid_emails = []
         formatted_names = []
         
         for _, row in df.iterrows():
             name = row[name_column]
-            email = row[email_column] if email_column else None  # Jika email_column None, abaikan email
+            email = row[email_column] if email_column else None 
             
             try:
                 # Jika email_column ada, lakukan validasi email
@@ -127,10 +126,8 @@ class CertificateGenerator:
         return pdf_paths, valid_emails, formatted_names
 
 def main():
-    # Load environment variables
     load_dotenv()
     
-    # Get email configuration from environment variables
     EMAIL_ADDRESS = os.getenv('EMAIL_ADDRESS')
     EMAIL_PASSWORD = os.getenv('EMAIL_PASSWORD')
     SMTP_SERVER = os.getenv('SMTP_SERVER', 'smtp.gmail.com')
@@ -179,7 +176,7 @@ def main():
                     )
                     print(f"sertifikat dikirim ke  {email} ({name}) oleh {os.environ['EMAIL_ADDRESS']}")
                 except Exception as e:
-                    print(f"Failed to send email to {email}: {e}")
+                    print(f"gagal ngirim email ke {email}: {e}")
             
             print("\nSertifikat berhasil dibuat dan selesai dikirim")
             
